@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vgear</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/wxstyle.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/sinaFaceAndEffec.css"/>
+    <link rel="stylesheet" href="../static/css/weui.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-weui.min.css">
+</head>
+<body>
+<div id="uid" th:value="${ids}" hidden></div>
+<div id="headurl" th:value="${headurl}" hidden></div>
+<div id="nickname" th:value="${nickname}" hidden></div>
+<div id="maxwrap">
+    <div class="main noneit">
+        <div class="fpc-top">
+            <div class="fpc-top-left clearfloat fltl">
+                <a href="mine.html">
+                    <img src="../static/images/shopic.png" alt="" class="leftpic fltl">
+                </a>
+                <div class="leftwel fcfff frsize34 fltr">欢迎光临Vgear</div>
+            </div>
+            <div class="fpc-top-right fltr">
+                <ul class="clearfloat phonesbox">
+                    <li class="fcfff frsize24 numberid">0</li>
+                    <li>
+                        <img src="../static/images/shopic.png"/>
+                    </li>
+                    <li>
+                        <img src="../static/images/shopic.png"/>
+                    </li>
+                    <li>
+                        <img src="../static/images/shopic.png"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="fpc-center" id="scrolldIV">
+            <ul>
+                <!--1、hotbg 热的背景     2、hugbg 抱抱的背景   3、kissbg 求艳遇的背景  4、lovebg 约的背景-->
+               <!-- <li class="issay clearfloat hotbg">
+                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132"
+                         class="headpic fltl">
+                    <div class="rightbox fltl">
+                        <div class="wxname fcyellow wrapit frsize24">大雨滂沱</div>
+                        <div class="saycot fcfff frsize24">5</div>
+                    </div>
+                    &lt;!&ndash;<img src="../static/images/bgcup.png" class="licup">&ndash;&gt;
+                    <img src="../static/images/icon1.png" class="icons hoticon pulse">
+                </li>
+                <li class="issay clearfloat hugbg">
+                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132"
+                         class="headpic fltl">
+                    <div class="rightbox fltl">
+                        <div class="wxname fcyellow wrapit frsize24">大雨滂沱</div>
+                        <div class="saycot fcfff frsize24">5</div>
+                    </div>
+                    &lt;!&ndash;<img src="../static/images/bgcup.png" class="licup">&ndash;&gt;
+                    <img src="../static/images/icon2.png" class="icons hugicon swing">
+                </li>
+                <li class="issay clearfloat kissbg">
+                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132"
+                         class="headpic fltl">
+                    <div class="rightbox fltl">
+                        <div class="wxname fcyellow wrapit frsize24">大雨滂沱</div>
+                        <div class="saycot fcfff frsize24">5</div>
+                    </div>
+                    &lt;!&ndash;<img src="../static/images/bgcup.png" class="licup">&ndash;&gt;
+                    <img src="../static/images/icon3.png" class="icons kissicon tada">
+                </li>
+                <li class="issay clearfloat lovebg">
+                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132"
+                         class="headpic fltl">
+                    <div class="rightbox fltl">
+                        <div class="wxname fcyellow wrapit frsize24">大雨滂沱</div>
+                        <div class="saycot fcfff frsize24">5</div>
+                    </div>
+                    &lt;!&ndash;<img src="../static/images/bgcup.png" class="licup">&ndash;&gt;
+                    <img src="../static/images/icon4.png" class="icons hugicon pulse">
+                </li>-->
+                <!--霸屏聊天效果-->
+              <!--  <li class="issay clearfloat">
+                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132"
+                         class="headpic fltl">
+                    <div class="rightbox fltl">
+                        <div class="wxname fcyellow wrapit frsize24">大雨滂沱</div>
+                        <div class="wxpctit">生日霸屏：<em class="times">30</em>秒</div>
+                        <div class="saycot fcfff frsize24 pc-photos">
+                            <a class="swipebox" href="../static/images/blogo.jpg">
+                                <img src="../static/images/blogo.jpg" alt="">
+                            </a>
+                            <a class="swipebox" href="../static/images/blogo.jpg">
+                                <img src="../static/images/blogo.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    &lt;!&ndash;<img src="../static/images/bgcup.png" class="licup">&ndash;&gt;
+                    <img src="../static/images/icon4.png" class="icons hugicon pulse">
+                </li>-->
+            </ul>
+        </div>
+        <div class="fpc-bot clearfloat">
+            <div class="bot-left fltl">
+                <img src="../static/images/mirror.png"/>
+            </div>
+            <div class="bot-center fltl">
+                <input type="text" placeholder="发个导弹呗..." class="text"/>
+                <img src="../static/images/emotion.png" class="face-icon"/>
+            </div>
+            <button class="sendbtn fcfff frsize24 fltr">发送</button>
+        </div>
+        <!-- 财富榜按钮 -->
+        <div class="richbtn open-popup" data-target="#richpop">
+            <img src="../static/images/gold.png" class="richico"/>
+            <span class="fcfff frsize24">财富榜</span>
+        </div>
+        <!--霸屏-->
+        <button class="holdcreen open-popup" data-target="#pascreen-pop">
+        </button>
+        <!--私聊-->
+       <!-- <div class="chaticon">
+            <img src="../static/images/wechat.png" alt="" class="wechat-icon">
+            <i class="number-tit">99</i>
+        </div>-->
+    </div>
+</div>
+<!--付费弹窗-->
+<div class="pay-pop">
+    <div class="pay-warp-pop pay-toolbar">
+        <div class="left-pay scaleIn">
+            <ul class="pay-price">
+                <li price="1">
+                    <div class="price-case hot-it">好热</div>
+                    <p>1元/条</p>
+                </li>
+                <li price="2">
+                    <div class="price-case hug-it">抱抱</div>
+                    <p>2元/条</p>
+                </li>
+                <li price="8">
+                    <div class="price-case kiss-it">求艳遇</div>
+                    <p>8元/条</p>
+                </li>
+                <li price="10">
+                    <div class="price-case love-it">约</div>
+                    <p>10元/条</p>
+                </li>
+                <li price="0">
+                    <div class="price-case no-it">无效果</div>
+                    <p>免费</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--财富榜弹窗-->
+<div id="richpop" class="weui-popup__container popup-bottom">
+    <div class="weui-popup__overlay"></div>
+    <div class="weui-popup__modal richpop-modal">
+        <div class="richpop-warp">
+            <div class="richpop-warp-tit">
+                <p class="richpop-tit">财富榜</p>
+                <p class="close-popup">×</p>
+            </div>
+            <div class="richpop-tab">
+                <a href="javascript:;" class="active">时榜</a>
+                <a href="javascript:;">周榜</a>
+                <a href="javascript:;">月榜</a>
+                <a href="javascript:;">总榜</a>
+            </div>
+            <div class="richpop-tab-content">
+                <!--时榜-->
+                <div class="rich-content-item" style="display:block;">
+                    <ul class="rich-ranking" id="houseList">
+                        <!--<li>-->
+                        <!--<div class="rich-head">-->
+                        <!--<p class="rich-img">-->
+                        <!--<img src="../static/images/pt.jpg" alt="">-->
+                        <!--</p>-->
+                        <!--</div>-->
+                        <!--<p class="rich-name font-gray">Huxa@金典</p>-->
+                        <!--<p class="rich-value">200财富值</p>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<div class="rich-head rich-head-first">-->
+                        <!--<p class="rich-img">-->
+                        <!--<img src="../static/images/pt1.jpg" alt="">-->
+                        <!--</p>-->
+                        <!--</div>-->
+                        <!--<p class="rich-name font-gold">Huxa@金典</p>-->
+                        <!--<p class="rich-value">500财富值</p>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<div class="rich-head rich-head-three">-->
+                        <!--<p class="rich-img">-->
+                        <!--<img src="../static/images/pt.jpg" alt="">-->
+                        <!--</p>-->
+                        <!--</div>-->
+                        <!--<p class="rich-name font-brown">Huxa@金典</p>-->
+                        <!--<p class="rich-value">100财富值</p>-->
+                        <!--</li>-->
+                    </ul>
+                    <ul class="rich-sort-list house-list">
+
+                    </ul>
+                    <div class="weui-loadmore" id="index-onload">
+                        <i class="weui-loading"></i>
+                        <span class="weui-loadmore__tips">正在加载</span>
+                    </div>
+                    <div class="weui-loadmore weui-loadmore_line" id="index-unload" style="display: none">
+                        <span class="weui-loadmore__tips">没有更多数据了</span>
+                    </div>
+                </div>
+                <!--周榜-->
+                <div class="rich-content-item">
+                    <ul class="rich-ranking">
+                        <li>
+                            <div class="rich-head">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-gray">Huxa@金典</p>
+                            <p class="rich-value">200财富值</p>
+                        </li>
+                        <li>
+                            <div class="rich-head rich-head-first">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt1.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-gold">Huxa@金典</p>
+                            <p class="rich-value">500财富值</p>
+                        </li>
+                        <li>
+                            <div class="rich-head">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-brown">Huxa@金典</p>
+                            <p class="rich-value">100财富值</p>
+                        </li>
+                    </ul>
+                    <ul class="rich-sort-list">
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--月榜-->
+                <div class="rich-content-item">
+                    <ul class="rich-ranking">
+                        <li>
+                            <div class="rich-head">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-gray">Huxa@金典</p>
+                            <p class="rich-value">200财富值</p>
+                        </li>
+                        <li>
+                            <div class="rich-head rich-head-first">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt1.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-gold">Huxa@金典</p>
+                            <p class="rich-value">500财富值</p>
+                        </li>
+                        <li>
+                            <div class="rich-head">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-brown">Huxa@金典</p>
+                            <p class="rich-value">100财富值</p>
+                        </li>
+                    </ul>
+                    <ul class="rich-sort-list">
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--总榜-->
+                <div class="rich-content-item">
+                    <ul class="rich-ranking">
+                        <li>
+                            <div class="rich-head">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-gray">Huxa@金典</p>
+                            <p class="rich-value">200财富值</p>
+                        </li>
+                        <li>
+                            <div class="rich-head rich-head-first">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt1.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-gold">Huxa@金典</p>
+                            <p class="rich-value">500财富值</p>
+                        </li>
+                        <li>
+                            <div class="rich-head">
+                                <p class="rich-img">
+                                    <img src="../static/images/pt.jpg" alt="">
+                                </p>
+                            </div>
+                            <p class="rich-name font-brown">Huxa@金典</p>
+                            <p class="rich-value">100财富值</p>
+                        </li>
+                    </ul>
+                    <ul class="rich-sort-list">
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.5</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.6</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rich-list-rank">No.4</div>
+                            <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+                            <div class="rich-list-mes">
+                                <p>Anna Rices</p>
+                                <p>78财富值</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--霸屏弹窗-->
+<div id="pascreen-pop" class="weui-popup__container popup-bottom">
+    <div class="weui-popup__overlay"></div>
+    <div class="weui-popup__modal">
+        <div class="richpop-warp">
+            <div class="richpop-warp-tit">
+                <p class="richpop-tit">霸屏</p>
+                <p class="close-popup">×</p>
+            </div>
+            <form action="http://vg.haoledi.com/chat/images/saveimage" enctype="multipart/form-data" id="pascreenForm" method="post" target="nm_iframes">
+                <input type="text" name="type" value="5" hidden>
+                <input type="text" name="money" value="1028" hidden>
+                <div class="pascreen-content">
+                    <p class="pa-theme-tit">霸屏主题</p>
+                    <ul class="pascreen-themes">
+                        <li>
+                            <div class="pa-border active">
+                                <img src="../static/images/theme1.png" alt="" class="pa-theme-img">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pa-border">
+                                <img src="../static/images/theme2.png" alt="" class="pa-theme-img">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pa-border">
+                                <img src="../static/images/theme3.png" alt="" class="pa-theme-img">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pa-border">
+                                <img src="../static/images/theme4.png" alt="" class="pa-theme-img">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pa-border">
+                                <img src="../static/images/theme5.png" alt="" class="pa-theme-img">
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="text" placeholder="请输入主题文字" id="pa-textarea">
+                    <!--上传图片-->
+                      <div class="weui-gallery" id="gallery">
+                          <span class="weui-gallery__img" id="galleryImg"></span>
+                          <div class="weui-gallery__opr">
+                              <a href="javascript:" class="weui-gallery__del">
+                                  <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="weui-cells weui-cells_form">
+                          <div class="weui-cell uploader-cell-box">
+                              <div class="weui-cell__bd">
+                                  <div class="weui-uploader">
+                                      <div class="weui-uploader__bd">
+                                          <ul class="weui-uploader__files" id="uploaderFiles">
+                                              <!-- 预览图插入到这 -->
+                                          </ul>
+                                          <div class="weui-uploader__input-box">
+                                              <input id="uploaderInput" class="weui-uploader__input zjxfjs_file"
+                                                     type="file" accept="image/*" multiple name="headimg">
+                                              <input type="hidden"  name="uid" value="23">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    <!--<div class="upImg-box">
+                        <div id="localImag" class="uploader-img">
+                            <img id="preview" src="../static/images/up.png" class="upImg">
+                            <input type="file" name="headimg" id="docfile" class="upfile"
+                                   onchange="javascript:setImagePreview();">
+                            <input type="hidden" name="uid" value="23">
+                        </div>
+                        <div id="localImags" class="uploader-img">
+                            <img id="previews" src="../static/images/up.png" class="upImg">
+                            <input type="file" name="headimg" id="docfiles" class="upfile"
+                                   onchange="javascript:setImagePreviews();">
+                            <input type="hidden" name="uid" value="23">
+                        </div>
+                    </div>-->
+                    <!--提示错误信息-->
+                    <div class="weui_dialog_alert" style="display: none;">
+                        <div class="weui-mask weui-mask--visible"></div>
+                        <div class="weui-dialog weui-dialog--visible">
+                            <div class="weui-dialog__hd"><strong class="weui-dialog__title">警告</strong>
+                            </div>
+                            <div class="weui-dialog__bd">弹窗内容，告知当前页面信息等</div>
+                            <div class="weui-dialog__ft">
+                                <a href="javascript:;" class="weui-dialog__btn  primary">确定</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--提示错误信息 end-->
+                    <p class="pa-theme-tit">霸屏时间</p>
+                    <div class="pa-theme-time">
+                        <span><em>2018</em>秒</span>
+                        <span><em>1314</em>秒</span>
+                        <span><em>520</em>秒</span>
+                        <span><em>120</em>秒</span>
+                        <span><em>60</em>秒</span>
+                        <span class="active"><em>30</em>秒</span>
+                    </div>
+                    <div class="pa-theme-money">
+                        价格：<em>30</em>元
+                    </div>
+                    <div class="pa-btn">立即发布</div>
+                </div>
+            </form>
+            <iframe src="" name="nm_iframes" id="nm_iframes" style="display:none;"></iframe>
+        </div>
+    </div>
+</div>
+<!--查看对方信息-->
+<div class="vg-mask">
+    <div class="vg-pop">
+        <i class="vg-close">×</i>
+        <div class="vg-pop-content">
+            <img src="../static/images/pt.jpg" alt="">
+            <p>哇偶哇偶</p>
+        </div>
+        <div class="vg-pop-bottom">
+            <a href="javascript:;" class="vg-data">查看资料</a>
+            <a href="javascript:;" class="vg-chat open-popup" data-target="#vg-chat">私聊</a>
+            <a href="javascript:;" class="vg-contact">@Ta</a>
+        </div>
+    </div>
+</div>
+<!--私聊-->
+<div class="vg-chat-mask" style="display:none;">
+    <div class="vg-chats">
+        <div class="chat-tit">私聊 <span class="row-icon"><img src="../static/images/row.png" alt=""></span></div>
+        <div class="chat-content">
+            <div class="chat-other">
+                <div class="chat-list-other">
+                    <p>888888888888888888888888888888888888888</p>
+                </div>
+                <div class="chat-list-other">
+                    <p>嗯</p>
+                </div>
+            </div>
+            <div class="chat-me">
+                <div class="chat-list-me">
+                    <p>4444444444444444444444444444444444444444</p>
+                </div>
+                <div class="chat-list-me">
+                    <p>dfdjf</p>
+                </div>
+                <div class="chat-list-me">
+                    <p>你好哇</p>
+                </div>
+                <div class="chat-list-me">
+                    <p>你好哇</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="chat-mes clearfloat">
+            <div class="chat-mes-input">
+                <input type="text" placeholder="发个导弹呗..." class="chat-text">
+                <span class="brow-icon"><img src="../static/images/emotion.png" alt=""></span>
+            </div>
+            <button class="chat-send">发送</button>
+        </div>
+    </div>
+</div>
+<!--私聊未读消息-->
+<div class="vg-chats">
+    <div class="chat-tit">私聊 <span class="row-icon"><img src="../static/images/row.png" alt=""></span></div>
+    <div class="unread-chat">
+        <ul class="unread-chat-warp">
+            <li>
+                <a href="javascript:;">
+                    <img src="../static/images/pt.jpg" class="chat-phone">
+                    <div class="chat-w-box">
+                        <div class="chat-w-name">星宇</div>
+                        <div class="chat-w-content">123455456788</div>
+                    </div>
+                    <span class="un-number">15</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="../static/js/jquery-2.1.3.min.js?v=20171215"></script>
+<script type="text/javascript" src="../static/js/tools.js"></script>
+<script type="text/javascript" src="../static/js/rem.js"></script>
+<script type="text/javascript" src="../static/js/main.js"></script>
+<script type="text/javascript" src="../static/js/sinaFaceAndEffec.js"></script>
+<script type="text/javascript" src="../static/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../static/js/fastclick.js"></script>
+<script type="text/javascript" src="../static/js/template-web.js"></script>
+<script type="text/javascript" src="../static/js/mui.min.js"></script>
+<script type="text/html" id="houseOther">
+    {{each houseOther as value}}
+    <li>
+        <div class="rich-list-rank">{{value.id}}</div>
+        <div class="rich-list-img"><img src="../static/images/pt.jpg" alt=""></div>
+        <div class="rich-list-mes">
+            <p>{{value.nickName}}</p>
+            <p>{{value.value}}财富值</p>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<script>
+    $(function () {
+        $.ajax({
+            url: 'data.json',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                var result = data.house;
+                var houseOther = result.houseOther;
+                var houseFirst = result.houseFirst;
+//            前三名
+                $("<li><div class='rich-head'><p class='rich-img'><img src=" + houseFirst[0].headImg + "></p></div><p class='rich-name font-gray'>" + houseFirst[0].nickName + "</p><p class='rich-value'>" + houseFirst[0].value + "财富值</p></li><li><div class='rich-head rich-head-first'><p class='rich-img'><img src=" + houseFirst[1].headImg + "></p></div><p class='rich-name font-gold'>" + houseFirst[1].nickName + "</p><p class='rich-value'>" + houseFirst[1].value + "财富值</p></li><li><div class='rich-head rich-head-three'><p class='rich-img'><img src=" + houseFirst[2].headImg + "></p></div><p class='rich-name font-brown'>" + houseFirst[2].nickName + "</p><p class='rich-value'>" + houseFirst[2].value + "财富值</p></li>").appendTo($("#houseList"));
+                /*    console.log(houseOther);
+                 console.log(houseOther.length)*/
+                if (houseOther.length < 10) {
+                    $('#index-onload').remove();
+                    $('#index-unload').show();
+                    $(document.body).destroyInfinite();
+                }
+                var house = template("houseOther", result);
+                $('.house-list').append(house);
+            }
+        });
+
+        var num = 2;
+        var loading = false;
+        $(".rich-content-item").infinite().on("infinite", function () {
+            if (loading) return;
+            loading = true;
+            $.ajax({
+//                    url:'data.json?page='+num,
+                url: "data1.json",
+                type: 'get',
+                async: false,
+                datatype: 'json',
+                success: function (data) {
+                    if (data.houseOther) {
+                        var house = template("houseOther", data);
+                        $('.house-list').append(house);
+                        num++;
+                    } else {
+                        $('#index-onload').remove();
+                        $('#index-unload').show();
+                        $(document.body).destroyInfinite();
+                    }
+
+                }
+            });
+            loading = false;
+        });
+    })
+</script>
+<!--<script>
+    function setImagePreview(avalue) {
+        var docObj = document.getElementById("docfile");
+        var imgObjPreview = document.getElementById("preview");
+        if (docObj.files && docObj.files[0]) {
+            //火狐下，直接设img属性
+            imgObjPreview.style.display = 'block';
+            imgObjPreview.style.width = '150px';
+            imgObjPreview.style.height = '180px';
+            //imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+            //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+            imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+        } else {
+            //IE下，使用滤镜
+            docObj.select();
+            var imgSrc = document.selection.createRange().text;
+            var localImagId = document.getElementById("localImag");
+            //必须设置初始大小
+            localImagId.style.width = "150px";
+            localImagId.style.height = "180px";
+            //图片异常的捕捉，防止用户修改后缀来伪造图片
+            try {
+                localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+            }
+            catch (e) {
+                alert("您上传的图片格式不正确，请重新选择!");
+                return false;
+            }
+            imgObjPreview.style.display = 'none';
+            document.selection.empty();
+        }
+        return true;
+    }
+    function setImagePreviews(avalue) {
+        var docObj = document.getElementById("docfiles");
+        var imgObjPreview = document.getElementById("previews");
+        if (docObj.files && docObj.files[0]) {
+            //火狐下，直接设img属性
+            imgObjPreview.style.display = 'block';
+            imgObjPreview.style.width = '150px';
+            imgObjPreview.style.height = '180px';
+            //imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+            //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+            imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+        } else {
+            //IE下，使用滤镜
+            docObj.select();
+            var imgSrc = document.selection.createRange().text;
+            var localImagId = document.getElementById("localImags");
+            //必须设置初始大小
+            localImagId.style.width = "150px";
+            localImagId.style.height = "180px";
+            //图片异常的捕捉，防止用户修改后缀来伪造图片
+            try {
+                localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+            }
+            catch (e) {
+                alert("您上传的图片格式不正确，请重新选择!");
+                return false;
+            }
+            imgObjPreview.style.display = 'none';
+            document.selection.empty();
+        }
+        return true;
+    }</script>-->
+<script>
+   var headurl = $("#headurl").attr("value");
+   var id = $("#uid").attr("value");
+   var nickname = $("#nickname").attr("value");
+//     var headurl = "";
+//     var id = 30;
+//     var nickname = "aa";
+    var mobindex = {
+        init: function () {
+                		$.ajax({
+            	type:'get',
+            	url:"http://vg.haoledi.com/chat/getrecord",
+            	data:{},
+            	dataType:'json',
+            	success:function(data){
+            		console.log(data);
+            		if(data.length>0){
+                        mobindex.getinfo(data);
+            		}
+            	},
+            	error:function(){
+            		pub.alert("网络错误请稍后重试！");
+            	}
+            })
+        },
+        getinfo: function (result) {
+            var iscont = '', len = result.length;
+            for (var i = 0; i < len; i++) {
+                if (result[i].type == 1 || result[i].type == 2) {
+                    iscont += '<li class="istip"><div class="tipbox"><span class="fcyellow frsize24 wrapit" style="max-width:3.2rem;margin-right:.1rem;">' + result[i].nickname + '</span>';
+                    iscont += '<span class="fcfff frsize24">' + (result[i].type == 1 ? "闪亮登场" : "退出聊天") + '</span></div></li>';
+                }
+                else if(result[i].type == 3 || result[i].type == 4){
+                        iscont += '<li class="issay clearfloat';
+                        if (result[i].type == 4) {
+                            if(result[i].money==1){
+                                iscont += ' hotbg';
+                            }
+                            else if(result[i].money==2){
+                                iscont += ' hugbg';
+                            }
+                            else if(result[i].money==8){
+                                iscont += ' kissbg';
+                            }
+                            else if(result[i].money==10){
+                                iscont += ' lovebg';
+                            }
+                        }
+                        iscont += '"><img src="' + result[i].headpic + '" class="headpic fltl" />\
+                                    <div class="rightbox fltl">\
+                                        <div class="wxname fcyellow wrapit frsize24">' + result[i].nickname + '</div>\
+                                        <div class="saycot fcfff frsize24">' + AnalyticEmotion(result[i].message) + '</div>\
+                                    </div>';
+                        if (result[i].type == 4) {
+                            if(result[i].money==1){
+                                iscont += '<img src="../static/images/pcicon1.png" class="icons hoticon pulse" /></li>';
+                            }
+                            else if(result[i].money==2){
+                                iscont += '<img src="../static/images/pcicon2.png" class="icons hugicon swing" /></li>';
+                            }
+                            else if(result[i].money==8){
+                                iscont += '<img src="../static/images/pcicon3.png" class="icons kissicon tada" /></li>';
+                            }
+                            else if(result[i].money==10){
+                                iscont += '<img src="../static/images/pcicon4.png" class="icons loveicon pulse" /></li>';
+                            }
+                        } else {
+                            iscont += '<img src="../static/images/bgcup.png" class="licup noneit pulse" /></li>';
+                        }
+                    }else if(result[i].type == 5){
+                    iscont += '<li class="issay clearfloat"><img src="' + result[i].headpic + '" class="headpic fltl"><div class="rightbox fltl"><div class="wxname fcyellow wrapit frsize24">' + result[i].nickname + '"</div><div class="wxpctit">告白霸屏：<em class="times">'+result[i].money+'</em>秒</div><div class="saycot fcfff frsize24 pc-photos"><a class="swipebox" href="'+'http://vg.haoledi.com/chat/images/'+result[i].imageOne+'"> <img src="'+'http://vg.haoledi.com/chat/images/'+result[i].imageOne+'" alt=""> </a> </div><img src="../static/images/icon4.png" class="icons hugicon pulse"></li>';
+
+                    /*<li class="issay clearfloat">
+                        <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132" class="headpic fltl">
+                            <div class="rightbox fltl">
+                                <div class="wxname fcyellow wrapit frsize24">大雨滂沱</div>
+                                <div class="wxpctit">生日霸屏：<em class="times">22</em>秒</div>
+                                <div class="saycot fcfff frsize24 pc-photos">
+                                    <a class="swipebox" href="../static/images/blogo.jpg">
+                                        <img src="../static/images/blogo.jpg" alt="">
+                                    </a>
+                                    <a class="swipebox" href="../static/images/blogo.jpg">
+                                        <img src="../static/images/blogo.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <!--<img src="../static/images/bgcup.png" class="licup">-->
+                            <img src="../static/images/icon4.png" class="icons hugicon pulse">
+                    </li>*/
+                }
+            }
+            $(".fpc-center ul").append(iscont);
+            /*自动向上走*/
+            mobindex.scorllbot();
+
+
+//            for (var i = 0; i < len; i++) {
+//                if (result[i].type == 3 || result[i].type == 4) {
+//                    iscont += '<li class="issay clearfloat';
+//                    if (result[i].type == 4) {
+//                        iscont += ' isact';
+//                    }
+//                    iscont += '"><img src="' + result[i].headpic + '" class="headpic fltl" />\
+//									<div class="rightbox fltl">\
+//										<div\
+//										 \
+//										 class="wxname fcyellow wrapit frsize24">' + result[i].nickname + '</div>\
+//										<div class="saycot fcfff frsize24">' + AnalyticEmotion(result[i].message) + '</div>\
+//									</div>';
+//                    if (result[i].type == 4) {
+//                        iscont += '<img src="../static/images/bgcup.png" class="licup" /></li>';
+//                    } else {
+//                        iscont += '<img src="../static/images/bgcup.png" class="licup noneit" /></li>';
+//                    }
+//
+//                } else if (result[i].type == 1 || result[i].type == 2) {
+//                    iscont += '<li class="istip"><div class="tipbox"><span class="fcyellow frsize24 wrapit" style="max-width:3.2rem;margin-right:.1rem;">' + result[i].nickname + '</span>';
+//                    iscont += '<span class="fcfff frsize24">' + (result[i].type == 1 ? "闪亮登场" : "退出聊天") + '</span></div></li>';
+//
+//                }
+//            }
+//            $(".fpc-center ul").append(iscont);
+//            /*自动向上走*/
+//            mobindex.scorllbot();
+        },
+        scorllbot: function () {/*使得对话框的的滚动条处于对话框的底部*/
+            var div = document.getElementById('scrolldIV');
+            div.scrollTop = div.scrollHeight;
+        },
+        /* iosinput: function () {/!*兼容ios软键盘覆盖input框*!/
+         $('input').on('focus', function () {
+         var div = document.getElementById('mwrap');
+         div.scrollTop = div.scrollHeight;
+         });
+         }*/
+    }
+
+    /*初始化*/
+    $(function () {
+        $(".main").show();
+        /*初始化页面*/
+
+        $('.face-icon').SinaEmotion($('.text'));
+        /*绑定表情*/
+
+        // AnalyticEmotion(inputText)/*表情解析*/
+
+        mobindex.init();
+        /*初始化消息*/
+
+
+        /*  mobindex.iosinput();*/
+        /*websocket通讯*/
+        var websocket = null;
+        if ('WebSocket' in window) {
+            websocket = new WebSocket('ws://vg.haoledi.com/chat/webSocket/' + id);
+        } else {
+            alert('该浏览器不支持websocket');
+        }
+        /*websocket二次连接*/
+        setInterval(function () {
+            if (websocket.readyState == 0 || websocket.readyState == 3) {
+                if ('WebSocket' in window) {
+                    websocket = new WebSocket('ws://vg.haoledi.com/chat/webSocket/' + id);
+                } else {
+                    alert('该浏览器不支持websocket');
+                }
+            }
+        }, 1000);
+
+        websocket.onopen = function (event) {
+            console.log('websocket建立连接');
+        };
+        websocket.onclose = function (event) {
+            console.log('websocket关闭连接');
+        };
+        websocket.onmessage = function (event) { /*接收到消息*/
+            //{nickname: "葛现于", headpic: "http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/6e/shamea_thumb.gif", type: 1, message: "fytuhty[可怜]"}
+            //3正常，4付费，1上线，2退出
+            console.log('websocket收到消息' + event.data);
+            var arry = [];
+            var result = $.parseJSON(event.data);
+            arry.push(result);
+            console.log(arry);
+            mobindex.getinfo(arry);
+            $('.numberid').html(result.userNum);
+        };
+
+        websocket.onerror = function (event) {
+            alert('websocket通信发生错误');
+        };
+        window.onbeforeunload = function (event) {
+            websocket.close();
+        };
+        function sendmessage(message) {
+            websocket.send(message);
+        };
+
+        //        判断是否选择付费效果
+        var payflag = true;
+        var pay_price = $(".pay-price li");
+        pay_price.click(function () {
+            pay_price.removeClass("check");
+            $(this).addClass("check");
+        });
+        //        发送消息
+        $(".sendbtn").on("click", function () {
+            var val=$(".text").val();
+            if (val== "") {
+                pub.alert('请输入内容！');
+            } else {
+                var state=1;
+                for (var i = 0; i < pay_price.length; i++) {
+                    if (pay_price.eq(i).hasClass("check")) {
+                        var price = pay_price.eq(i).attr("price");
+                        console.log(price)
+                        if (price && payflag) {
+                            payflag = false;
+                            var type = Number(4);
+                            var allmsg = '{"message":"' + val + '","headpic":"' + headurl + '","nickname":"' + nickname + '","type":' + type + ',"money":'+price+'}';
+                            sendmessage(allmsg);
+                            $(".text").val("");
+                            payflag = true;
+                            pay_price.eq(i).removeClass("check");
+                            state=0;
+                        }
+                    }
+                }
+                if(state){
+                    var type = Number(4);
+                    var allmsg = '{"message":"' + val + '","headpic":"' + headurl + '","nickname":"' + nickname + '","type":' + type + ',"money":'+0+'}';
+                    sendmessage(allmsg);
+                    $(".text").val("");
+                }
+            }
+        });
+
+        // 霸屏立即发布
+        $(".pa-btn").on('click', function () {
+            var theme_money=$(".pa-theme-money em").html();
+            var pa_textarea=$("#pa-textarea").val();
+            if(pa_textarea==""){
+                pub.alert('请输入内容！');
+            }else{
+                $("#pascreenForm").submit();
+                    var type = Number(5);
+                    var allmsg = '{"message":"'+pa_textarea+'","headpic":"'+headurl+'","nickname":"'+nickname+'","type":' + type + ',"money":'+theme_money+',"uid":'+23+'}';
+                    sendmessage(allmsg);
+                   $(".close-popup").click();
+
+            }
+        });
+    })
+</script>
+<script>
+    //付费弹出效果
+    $('.bot-left').on('click', function (e) {
+        $('.pay-pop').toggleClass('paybar-open');
+        e.stopPropagation();
+        $('.main ').on('click', function () {
+            $('.pay-pop').removeClass('paybar-open');
+        })
+    });
+    $('.left-pay').on('click', function () {
+        $('.pay-pop').removeClass('paybar-open');
+    });
+
+    //    财富榜
+    $('.richpop-tab a').on('click', function () {
+        var index = $('.richpop-tab a').index(this);
+        $('.richpop-tab a').removeClass('active').eq(index).addClass('active');
+        $('.rich-content-item').hide().eq(index).show();
+    });
+    //    霸屏主题选中效果
+    $('.pascreen-themes li').on('click', function () {
+        var index = $('.pascreen-themes li').index(this)
+        $('.pascreen-themes li').find('div').removeClass('active').eq(index).addClass('active');
+    });
+    //   霸屏选中效果
+    $('.pa-theme-time span').on('click', function () {
+        var index = $('.pa-theme-time span').index(this);
+        $(this).addClass('active').siblings('span').removeClass('active');
+        var text = $('.pa-theme-time span').eq(index).find('em').text();
+        $('.pa-theme-money em').text(text)
+    })
+</script>
+<script>
+    //    图片上传
+    $.weui = {};
+    $.weui.alert = function (options) {
+        options = $.extend({
+            title: '警告',
+            text: '警告内容'
+        }, options);
+        var $alert = $('.weui_dialog_alert');
+        $alert.find('.weui-dialog__title').text(options.title);
+        $alert.find('.weui-dialog__bd').text(options.text);
+        $alert.on('touchend click', '.weui-dialog__btn', function () {
+            $alert.hide();
+        });
+        $alert.show();
+    };
+    mui.init();
+    $(function () {
+        var maxCount = 1;
+        var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+                $gallery = $("#gallery"),
+                $galleryImg = $("#galleryImg"),
+                $uploaderInput = $("#uploaderInput"),
+                $uploaderFiles = $("#uploaderFiles");
+        $uploaderInput.on("change", function (e) {
+            if ($('.weui-uploader__file').length >= maxCount) {
+                $.weui.alert({
+                    text: '最多只能上传' + maxCount + '张图片'
+                });
+                return;
+            }
+            var src, url = window.URL || window.webkitURL || window.mozURL,
+                    files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+
+                if (url) {
+                    src = url.createObjectURL(file);
+                } else {
+                    src = e.target.result;
+                }
+
+                $uploaderFiles.append($(tmpl.replace('#url#', src)));
+            }
+        });
+        var index;
+        $uploaderFiles.on("click", "li", function () {
+            index = $(this).index();
+            $galleryImg.attr("style", this.getAttribute("style"));
+            $gallery.fadeIn(100);
+        });
+        $gallery.on("click", function () {
+            $gallery.fadeOut(100);
+        });
+        //删除图片
+        $(".weui-gallery__del").click(function () {
+            $uploaderFiles.find("li").eq(index).remove();
+        });
+    });
+</script>
+<script>
+    function onBridgeReady(obj) {
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', {
+                    "appId": obj.appId, /*公众号名称，由商户传入*/
+                    "timeStamp": obj.timeStamp, /*时间戳，自1970年以来的秒数*/
+                    "nonceStr": obj.nonceStr, /*随机串*/
+                    "package": obj.package,
+                    "signType": obj.signType, /*微信签名方式*/
+                    "paySign": obj.paySign /*微信签名*/
+                },
+                function (res) {
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        /*支付接口调取成功*/
+                        pay_price.removeClass("check");
+
+                        alert("支付请求成功！")
+                    } else {
+
+                        /*支付请求未成功*/
+                        alert("支付请求失败！");
+                    }
+                    /*使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。*/
+                }
+        );
+    }
+    function callpay(obj) {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady(obj);
+        }
+    }
+</script>
+<script type="text/javascript">
+    //    霸屏发出图片预览
+    jQuery(function ($) {
+        $(".swipebox").swipebox();
+    });
+    //查看对方资料
+    $(document).on('click', '.headpic', function (e) {
+        var imgSrc = $(this).attr('src');
+        var name = $(this).siblings('div').find('div').html();
+        $(".vg-mask img").attr('src', imgSrc);
+        $(".vg-mask p").html(name);
+        $(".vg-mask").fadeIn();
+        $(document).on('click', function () {
+            $(".vg-mask").fadeOut();
+        })
+        e.stopPropagation();
+    });
+    $('.vg-pop').on('click', function (e) {
+        e.stopPropagation();
+    })
+    $(".vg-close").on('click', function () {
+        $(".vg-mask").fadeOut();
+    });
+    $(".vg-data").on('click', function () {
+        window.location.href = "mine.html";
+    });
+    $(".vg-chat").on('click', function () {
+
+    });
+    $(".vg-contact").on('click', function () {
+        var name = $(this).parent().siblings('.vg-pop-content').find('p').html();
+        $(".text").val("@" + name);
+        $(".vg-mask").css('display', 'none');
+    });
+
+    //    立即发布
+//    $(".pa-btn").on('click', function () {
+//        $("#pascreenForm").submit();
+//    })
+</script>
+<script>
+    //    私信
+    $(function () {
+        $('.brow-icon').SinaEmotion($('.chat-text'));
+//        点击发送内容
+        $('.chat-send').on('click', function () {
+            var chatText = $('.chat-text').val();
+            if (chatText == '') {
+                pub.alert('内容不能为空');
+                return;
+            }
+        })
+    });
+
+//    点击关闭私聊弹窗
+    $('.chaticon').on('click',function(){
+        $('.vg-chats').slideDown();
+    });
+    $('.row-icon').on('click',function(){
+        $('.vg-chats').slideUp();
+    })
+</script>
+<script>
+    //    倒计时
+    function timer(alltime) {
+        t = setInterval(countDown, 1000);
+        function countDown() {
+            if (alltime >= 0) {
+                $('.times').html(alltime);
+                alltime--;
+            } else {
+//            $('#count-down').html("活动已结束");
+                clearInterval(t);
+            }
+        }
+    }
+    timer(29)
+</script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>chat</title>
+    <style type="text/css">
+        .card-container-message {
+            margin: 10px 0;
+        }
+
+        .ellipsis {white-space: nowrap;text-overflow: ellipsis;overflow: hidden}
+        .bs-example{padding: 10px;border: 1px solid #999;margin: 2px;}
+        .bs-example span{font-size: 10px;color:red;}
+        .layer_barrage{ position:fixed; bottom:135px; width:100%; height: 136px;}
+        .layer_barrage ul{ display:box; display:-webkit-box; display:-moz-box; display: -ms-box; margin-bottom:20px;  }
+        .layer_barrage ul li{
+            transform: translateX(0px)
+        }
+        .layer_barrage ul:nth-child(even){ padding-left:20px;}
+        .layer_barrage li{ font-size:12px; margin-right:28px; padding-right:30px;color:#fff; display: block; white-space: nowrap;text-overflow: ellipsis; height:22px; line-height:22px; background:rgba(0,0,0,0.68); border-radius:11px;transform: translateX(0px);}
+        .layer_barrage li span{display:inline-block;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+        .layer_barrage img{ width:18px; height:18px; border-radius:50%; float: left; margin:2px 6px 0 2px;}
+        .layer_barrage .active{ background:rgba(20,185,148,0.9);}
+        .layer_barrage .reward{ position:absolute; right:50px; bottom:58px;}
+        .layer_barrage .reward img{ width:40px; height:auto;}
+    </style>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/mdui/0.3.0/css/mdui.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+
+<div class="mdui-container">
+    <div class="mdui-toolbar mdui-color-theme">
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <span class="mdui-typo-title">Chat</span>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+    </div>
+</div>
+
+<div>
+    <div class="mdui-container container_text">
+
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-col-sm-8">
+                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                        <i class="mdui-icon material-icons">textsms</i>
+                        <label class="mdui-textfield-label">Message</label>
+                        <textarea class="mdui-textfield-input chat-message"></textarea>
+
+
+                    </div>
+                    <div class="mdui-container" style="padding:20px 40px">
+                        <button class="mdui-btn mdui-color-theme-accent mdui-ripple send-message">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdui-col-xs-6 mdui-col-sm-4 " style="padding:10px 0">
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">face</i></span>
+                    <span class="mdui-chip-title">总人数</span>
+                </div>
+
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe420;</i></span>
+                    <span class="mdui-chip-title chat-num">0</span>
+                </div>
+                <div class="message-container">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <section class="layer_barrage j_barrage ">
+        <ul>
+        </ul>
+    </section>
+</div>
+
+
+<script src="http://zeptojs.com/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/mdui/0.3.0/js/mdui.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/template" class="package-price-template" id="message-template">
+    <div class="mdui-card card-container-message">
+        <div class="mdui-card-primary">
+            <div class="mdui-card-content message-content"></div>
+        </div>
+    </div>
+</script>
+
+<script type="application/javascript">
+
+
+
+    var config = {
+        init_time:'',
+        interval_time:'',
+        line:'',
+        liWidth:'',
+    }
+    function playBarrage(){
+        $('.j_play_barrage').on('click',function(){
+            config.init_time = $('.j_init_time').val();
+            config.interval_time = $('.j_interval_time').val();
+            config.line = $('.j_line').val();
+            config.liWidth = $('.j_liWidth').val();
+            $('.j_barrage').find('ul').children().remove();
+            if(aqueue.length == 0){
+                aqueue = bqueue;
+                bqueue = [];
+            }
+            console.log(aqueue);
+            console.log(bqueue);
+            $('.j_barrage').find('ul').children().remove();
+            Barrage.danMuPause();
+
+            Barrage.danMuInit(aqueue);
+        })
+        $('.j_insert_barrage').on('click',function(){
+            var content = $('.j_bcontent').val();
+            var data = {content:content};
+            Barrage.danMuInsert(aqueue,data);
+        })
+    }
+
+    var aqueue = [
+      
+    ];
+    var bqueue = [
+
+    ]
+
+    var Barrage = {
+        left:document.documentElement.clientWidth,
+        translateX:document.documentElement.clientWidth||0,
+        fontSize:'12',
+        color:'#000',
+        line:'',//弹幕所分行数
+        top:[],//弹幕分行时绝对定位top值
+        init_time:'',//弹幕屏内滑动时间
+        interval_time:'1000',//弹幕每批出现间距时间
+        timeCacluate:'',//弹幕暂停
+        liWidth:'',//强制设置liwidth
+        danMuInit:function(data){
+            var self = this;
+            self.top = [];
+            self.line = parseInt(config.line)||3;
+            self.init_time = parseInt(config.init_time)||document.documentElement.clientWidth/50;
+            self.interval_time = parseInt(config.interval_time)||Math.min(self.init_time*1000/2,4200);
+            for(var i = 0 ;i < self.line;i++){
+                self.top.push(''+i*30+'px');
+            };
+            self.liWidth = parseInt(config.liWidth);
+
+            self.danMuPlay(aqueue);
+        },
+        danMuPlay:function(data){
+            if(typeof(data)=='underined'){return;}
+            var self = this;
+            var strLength = 0;
+            var strWidth = 0;
+            var add_time = 0;//与init_time共同构成行走时间
+
+            self.timeCacluate = setInterval(function(){
+                var arr = [];
+                for(var x = 0;x<self.top.length&&data.length > 0;x++){
+                    arr.push('<li data-type="'+data[0].type+'" data-mid="'+data[0].source_id+'" style="position: absolute;left:'+self.left+'px;top:'+self.top[x]+';display: inline-block;white-space: pre;">');
+                    arr.push('<img src="'+data[0].img+'" alt="" />');
+                    arr.push('<span>'+data[0].content+'</span>');
+                    arr.push('</li>');
+                    //重复播放时数据填充
+                    var t = data.shift();
+                    bqueue.push(t);
+
+                };
+                $('.j_barrage').find('ul').append(arr.join(''));
+                $('.j_barrage').find('ul span').css('width',''+self.liWidth+'px');
+                var liWidth = 0;//此li用于非定宽时存储每个li宽度
+                var liLength = $('.j_barrage').find('ul').children().length;
+                for(var j = 0;j < liLength;){
+                    for(k = 0;k<self.top.length&&j < liLength;k++){
+                        liWidth = $('.j_barrage').find('li').eq(j).width();
+                        add_time = liWidth/500;
+                        $('.j_barrage').find('li').eq(j).css({
+                            // 'transform':'translateX(-'+(self.left+liWidth+70)+'px)',
+                            '-webkit-transform':'translateX(-'+(self.left+liWidth+170)+'px)',
+                            'left':''+self.left+'px' ,
+                            // 'transition':'transform '+(self.init_time+add_time)+'s linear',
+                            '-webkit-transition':'-webkit-transform '+(self.init_time+add_time)+'s linear'
+                        });
+                        j++;
+
+                    }
+                }
+
+
+                if(data.length == 0){
+                    self.danMuPause();
+                }
+            },self.interval_time)
+
+
+            self.danMuClear();
+
+        },
+        danMuInsert:function(queue,data){
+            var self = this;
+            var img =  'http://tva1.sinaimg.cn/default/images/default_avatar_male_50.gif';
+            setTimeout(function(){
+                queue.unshift({'img':img,'content':data.content});
+
+                // if(queue.data == ''){
+
+                    self.danMuPlay(queue);
+                // }
+
+            },2000);
+        },
+        danMuClear:function(){
+            var clearLi = setInterval(function(){
+                for(var i = 0;i<$('.j_barrage').find('ul').children().length;i++){
+                    if($('.j_barrage').find('ul').children().eq(i).offset().left<-90){
+                        console.log('remove')
+                        $('.j_barrage').find('ul').children().eq(i).remove();
+                    }
+                }
+            },1000)
+        },
+        danMuPause:function(){
+            var self = this;
+            clearInterval(self.timeCacluate);
+        }
+    };
+    Barrage.danMuInit(aqueue);
+    playBarrage();
+
+
+
+
+    //websocket
+    var websocket = null;
+    var cahtNum = $('.chat-num').text();
+    if ('WebSocket' in window) {
+
+        websocket = new WebSocket('ws://218.242.26.118:8089/chat/webSocket');
+
+    } else {
+        alert('该浏览器不支持websocket');
+    }
+
+    websocket.onopen = function (event) {
+        console.log('websocket建立连接');
+    }
+
+    websocket.onclose = function (event) {
+        console.log('websocket关闭连接');
+    }
+
+    websocket.onmessage = function (event) {
+        console.log('websocket收到消息' + event.data);
+        var result = $.parseJSON(event.data);
+        if (result.type == 3) {
+            var element = document.getElementById('message-template').innerHTML;
+            $('.message-container').append(element);
+            $(".message-content:last").html(result.message);
+        }
+        else {
+            $('.chat-num').text(result.userNum);
+        }
+
+        var content = result.message;
+        var data = {content:content};
+        Barrage.danMuInsert(aqueue,data);
+
+    }
+
+    websocket.onerror = function (event) {
+        console.log('websocket通信发生错误');
+
+    }
+
+    window.onbeforeunload = function (event) {
+        websocket.close();
+    }
+
+    $('.send-message').click(function () {
+        var message = $('.chat-message').val();
+        if (message == "") {
+            mdui.alert('请输入要发送的消息');
+            return;
+        }
+        sendmessage(message);
+        $('.chat-message').val("");
+    })
+
+    function sendmessage(message) {
+        websocket.send(message);
+
+    }
+
+</script>
+
+</body>
+</html>
+
+

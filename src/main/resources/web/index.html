@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vgear</title>
+    <meta name="description" content="好乐迪 - Vgear互动大屏">
+    <meta name="keywords" content="好乐迪 - Vgear互动大屏">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="shortcut icon" href="../static/images/slogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="max-age=86400">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/pcstyle.css?v=20180309">
+    <link rel="stylesheet" href="../static/css/weui.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-weui.min.css">
+</head>
+<body style="position:relative">
+<div class="vgear-box">
+    <video autoplay="autoplay" loop="loop">
+        <source src="http://wx.imyequan.com/chat/images/vgear.mp4" type="video/mp4"/>
+    </video>
+    <div id="ldwrap">
+        <div id="ldmain">
+            <div id="main-top" class="borbox">
+                <button class="btnFullScreen" onclick="vgear.fullscreen(event)">点我</button>
+            </div>
+            <div id="main-container">
+                <ul>
+                    <!--1、hotbg 热的背景 hoticon      2、hugbg 抱抱的背景 hugicon  3、kissbg 求艳遇的背景  kissicon 4、lovebg 约的背景 loveicon-->
+                  <!--  <li class="clearfloat hotbg hugbg kissbg lovebg">
+                        <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3"
+                             class="lileft fltl">
+                        <div class="liright fltl">
+                            <div class="nickname fcyellow fsize30">zhangyao</div>
+                            <div class="saycont fcfff">waouwaouzzzz</div>
+                        </div>
+                        <div class="litime fcfff fsize28">undefined</div>
+                        &lt;!&ndash;<img src="../static/images/pcicon1.png" class="icons  hoticon">&ndash;&gt;
+                        &lt;!&ndash;<img src="../static/images/pcicon2.png" class="icons  hugicon">&ndash;&gt;
+                        &lt;!&ndash;<img src="../static/images/pcicon3.png" class="icons  kissicon">&ndash;&gt;
+                        <img src="../static/images/pcicon4.png" class="icons  loveicon">
+                    </li>-->
+                 <!--   <li class="clearfloat">
+                        <img src="http://thirdwx.qlog.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3" class="lileft fltl">
+                        <div class="liright fltl">
+                            <div class="nickname fsize30">大雨滂沱</div>
+                            <div class="wxpctit">生日霸屏：<em class="times">30</em>秒</div>
+                            <div class="saycot fcfff frsize24 pc-photos">
+                                <a class="swipebox" href=" ">
+                                    <img src="../static/images/blogo.jpg" alt="">
+                                </a>
+                                <a class="swipebox" href="../static/images/blogo.jpg">
+                                    <img src="../static/images/blogo.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="litime fcfff fsize28">10:40</div>
+                    </li>-->
+                </ul>
+            </div>
+            <div id="main-footer"></div>
+            <div class="topbox clearfloat">
+                <div class="topleft fltl">
+                    <img src="../static/images/blogo.jpg"/>
+                </div>
+                <div class="topright fltl fcfff">欢迎光临VGEAR Live</div>
+            </div>
+            <div class="qrfind">
+                <img src="../static/images/bgqrscan.png" alt="" class="qrscan"/>
+                <div class="foodpic" id="grbanner">
+                    <ul>
+                        <li><img src="../static/images/foodpic.png" alt=""></li>
+                        <li><img src="../static/images/hbg.jpg" alt=""></li>
+                        <li><img src="../static/images/shopic.png" alt=""></li>
+                    </ul>
+                </div>
+                <input type="text">
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹幕-->
+<div class="barrage-box">
+</div>
+<!--遮罩-->
+<div class="mask" style="display: none">
+    <!--生日霸屏-->
+    <!--<div class="mask-birthday">-->
+        <!--<div class="mask-bir-hd">-->
+            <!--<div class="bir-hd-box swiper-container">-->
+                <!--<a href="javascript:;" class="swiper-wrapper">-->
+                    <!--<img src="../static/images/pt1.jpg" alt="" class="swiper-slide bounceInDown">-->
+                    <!--<img src="../static/images/pt.jpg" alt="" class="swiper-slide rotateIn">-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="mask-bir-user">-->
+            <!--<div class="bir-user-box">-->
+                <!--<img src="../static/images/pt.jpg" alt="" class="pulse">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="mask-bir-name rubberBand">-->
+            <!--哇偶哇偶-->
+        <!--</div>-->
+        <!--<div class="mask-bir-text font-pink jello">-->
+            <!--亲爱的，我想跟你吃饭睡觉，打豆豆-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<script type="text/javascript" src="../static/js/jquery-2.1.3.min.js?v=20171215"></script>
+<script type="text/javascript" src="../static/js/tools.js"></script>
+<script type="text/javascript" src="../static/js/sinaFaceAndEffec.js"></script>
+<script type="text/javascript" src="../static/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../static/js/swiper.min.js"></script>
+<script type="text/javascript">
+    var vgear = {
+        timer: null,
+        init: function () {
+            $.ajax({
+                type:'get',
+                url:"http://vg.haoledi.com/chat/getrecord",
+                data:{},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.length){
+                        vgear.getmsg(data);
+                    }
+                },
+                error:function(){
+                    pub.alert("网络错误请稍后重试！");
+                }
+            })
+            // var data = [
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132",
+            //         "id": 17,
+            //         "nickname": "大雨滂沱",
+            //         "time": "2018-03-20 19:01:54",
+            //         "type": 4,
+            //         "money":1
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132",
+            //         "id": 18,
+            //         "nickname": "大雨滂沱",
+            //         "time": "2018-03-20 19:02:04",
+            //         "type": 4,
+            //         "money":2
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132",
+            //         "id": 19,
+            //         "nickname": "大雨滂沱",
+            //         "time": "2018-03-20 19:02:37",
+            //         "type": 4,
+            //         "money":8
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132",
+            //         "id": 20,
+            //         "nickname": "大雨滂沱",
+            //         "time": "2018-03-20 19:02:52",
+            //         "type": 4,
+            //         "money":10
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjnUhXWRaibiaIRT5emiaRBRjs83QSNibkJXsWtCjXuYqByW8ibWpMQTNlauHCjAFfx8yK4Y7rtticvMdA/132",
+            //         "id": 21,
+            //         "message": "fghjyt",
+            //         "nickname": "大雨滂沱",
+            //         "time": "2018-03-20 19:04:14",
+            //         "type": 4,
+            //         "money":1
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLicxEv6nvqCJOl1oGfTRTyJ4OJrcuia9R",
+            //         "id": 9,
+            //         "message": "德玛西亚万岁",
+            //         "nickname": "mejsa",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 4,
+            //         "money":2
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 10,
+            //         "message": "一切为了联盟",
+            //         "nickname": "噢哟",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 4,
+            //         "money":10
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 11,
+            //         "message": "嗨起来",
+            //         "nickname": "jemy",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 4,
+            //         "money":8
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 12,
+            //         "message": "都是你的错",
+            //         "nickname": "hiyr",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 4,
+            //         "money":1
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 13,
+            //         "message": "我要的爆米花呢",
+            //         "nickname": "ttrey",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 3
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 14,
+            //         "message": "快看我",
+            //         "nickname": "ttrey",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 3
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 15,
+            //         "message": "全名爆炸",
+            //         "nickname": "htiiy",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 3
+            //     },
+            //     {
+            //         "headpic": "http://thirdwx.qlogo.cn/mmopen/vi_32/Y27hiaYkskZVFZdkemOiaRKKq9wFWDlBOeVO7fUc9f3",
+            //         "id": 16,
+            //         "message": "就到这里吧",
+            //         "nickname": "hello",
+            //         "time": "2018-09-01 19：30",
+            //         "type": 3
+            //     }
+            // ];
+        },
+        getmsg: function (result) {
+            //{nickname: "葛现于", headpic: "http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/6e/shamea_thumb.gif", type: 1, message: "fytuhty[可怜]",time:"2018-03-25",money:""}
+            //3正常，4付费，1上线，2退出
+            console.log(result);
+            var len = result.length;
+            for (var i = 0; i < len; i++) {
+                if(result[i].type == 1){
+                    var barrage_mes = '<div class="barrage_info"><img src="'+result[0].headpic+'" alt=""><span>'+result[0].nickname+'</span>闪亮登录</div>';
+                    var top = Math.random() * $(document.body).height() - 77;
+                    $('.barrage-box').append(barrage_mes);
+                    $('.barrage_info').animate({right: $(document.body).width()}, 8000, function () {
+                        $(this).remove();
+                    });
+                }
+                else{
+                    var iscont = '';
+                    if(result[i].type == 3 || result[i].type == 4){
+                        iscont += '<li class="clearfloat';
+                        if (result[i].type == 4) {
+                            if(result[i].money==1){
+                                iscont += ' hotbg';
+                            }
+                            else if(result[i].money==2){
+                                iscont += ' hugbg';
+                            }
+                            else if(result[i].money==8){
+                                iscont += ' kissbg';
+                            }
+                            else if(result[i].money==10){
+                                iscont += ' lovebg';
+                            }
+                        }
+                        iscont += '"><img src="' + result[i].headpic + '" class="lileft fltl" />\
+                                    <div class="liright fltl">\
+                                        <div class="nickname fcyellow fsize30">' + result[i].nickname + '</div>\
+                                        <div class="saycont fcfff">' + AnalyticEmotion(result[i].message) + '</div>\
+                                    </div>\
+                                <div class="litime fcfff fsize28">' + result[i].time + '</div>';
+                        if (result[i].type == 4) {
+                            if(result[i].money==1){
+                                iscont += '<img src="../static/images/pcicon1.png" class="icons hoticon pulse" /></li>';
+                            }
+                            else if(result[i].money==2){
+                                iscont += '<img src="../static/images/pcicon2.png" class="icons hugicon swing" /></li>';
+                            }
+                            else if(result[i].money==8){
+                                iscont += '<img src="../static/images/pcicon3.png" class="icons kissicon tada" /></li>';
+                            }
+                            else if(result[i].money==10){
+                                iscont += '<img src="../static/images/pcicon4.png" class="icons loveicon pulse" /></li>';
+                            }
+                        } else {
+                            iscont += '<img src="../static/images/bgcup.png" class="licup noneit" /></li>';
+                        }
+                    }else if(result[i].type == 5){
+                        //霸屏效果
+                        var ba='';
+                        ba = '<div class="mask-birthday"><div class="mask-bir-hd"> <div class="bir-hd-box swiper-container"> <a href="javascript:;" class="swiper-wrapper"> <img src="http://vg.haoledi.com/chat/images/'+result[i].imageOne+'" alt="" class="swiper-slide bounceInDown">  </a> </div> </div> <div class="mask-bir-user"> <div class="bir-user-box"> <img src="'+result[i].headpic+'" alt="" class="pulse"> </div> </div> <div class="mask-bir-name rubberBand">'+result[i].nickname+'</div> <div class="mask-bir-text font-pink jello">'+AnalyticEmotion(result[i].message)+'</div></div>';
+                        var money1=parseInt(result[i].money);
+                        var mask=$('.mask');
+                        mask.append(ba);
+                        mask.fadeIn();
+                        setTimeout(function(){
+                            mask.fadeOut();
+                        },money1*1000);
+
+                        //聊天显示效果
+                        iscont += '<li class="clearfloat"><img src="'+result[i].headpic+'" class="lileft fltl"> <div class="liright fltl"> <div class="nickname fsize30">'+result[i].nickname+'</div> <div class="wxpctit">告白霸屏：<em class="times">'+result[i].money+'</em>秒</div> <div class="saycot fcfff frsize24 pc-photos"> <a class="swipebox" href="javascript:;"> <img src="'+'http://vg.haoledi.com/chat/images/'+result[i].imageOne+'" alt=""> </a></div> </div> <div class="litime fcfff fsize28">'+result[i].time+'</div></li>';
+                }
+                    $("#main-container ul").append(iscont);
+            }
+
+
+
+//            if (len == 1 && result[0].type == 1) { /*当有用户上线时弹幕*/
+//                var barrage_mes = '<div class="barrage_info"><img src="'+result[0].headpic+'" alt=""><span>'+result[0].nickname+'</span>闪亮登录</div>';
+//                var top = Math.random() * $(document.body).height() - 77;
+//                $('.barrage-box').append(barrage_mes);
+//                $('.barrage_info').animate({right: $(document.body).width()}, 8000, function () {
+//                    $(this).remove();
+//                });
+//            } else {
+//                console.log(len);
+//                var iscont = '';
+//                for (var i = 0; i < len; i++) {
+//                    if (result[i].type == 3 || result[i].type == 4) {
+//                        iscont += '<li class="clearfloat';
+//                        if (result[i].type == 4) {
+//                            iscont += ' isact';
+//                        }
+//                        iscont += '"><img src="' + result[i].headpic + '" class="lileft fltl" />\
+//                                    <div class="liright fltl">\
+//                                        <div class="nickname fcyellow fsize30">' + result[i].nickname + '</div>\
+//                                        <div class="saycont fcfff">' + AnalyticEmotion(result[i].message) + '</div>\
+//                                    </div>\
+//                                <div class="litime fcfff fsize28">' + result[i].sendTime + '</div>';
+//                        if (result[i].type == 4) {
+//                            iscont += '<img src="../static/images/bgcup.png" class="licup" /></li>';
+//                        } else {
+//                            iscont += '<img src="../static/images/bgcup.png" class="licup noneit" /></li>';
+//                        }
+//
+//                    }
+//                    $("#main-container ul").append(iscont);
+//                }
+//                /*自动到底部*/
+//                vgear.scorllbot();
+//                window.clearInterval(vgear.timer);
+//                /*清除定时器*/
+//            }
+            }
+            /*自动到底部*/
+            vgear.scorllbot();
+            window.clearInterval(vgear.timer);
+            /*清除定时器*/
+        },
+        scorllbot: function () {/*使得对话框的的滚动条处于对话框的底部*/
+            var div = document.getElementById('main-container');
+            div.scrollTop = div.scrollHeight;
+        },
+        timeplay: function () {/*每隔3秒轮播一次*/
+            vgear.timer = setInterval(function () {
+                var len = $("#main-container ul li").length;
+                if (len > 5) {
+                    for (var i = 0; i < 5; i++) {
+                        $("#main-container ul").find("li:eq(0)").appendTo('#main-container ul');
+                    }
+                }
+                vgear.scorllbot();
+
+            }, 3000)
+        },
+        fortime: function () {/*每隔3分钟打开一次定时器*/
+            var Timer = setInterval(function () {
+                window.clearInterval(vgear.timer);
+                vgear.timeplay();
+            }, 10000)
+        },
+        fullscreen: function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var i = document.documentElement;
+            var s = i.webkitRequestFullscreen || i.requestFullScreen || i.webkitRequestFullScreen || i.mozRequestFullScreen || i.msRequestFullScreen;
+            s && s.call(i);
+        }
+
+    };
+    window.setTimeout('vgear.timeplay()', 3000);
+    /*延时3秒钟开始轮播*/
+
+    $(function () {
+        vgear.init();
+        /*初始化消息*/
+        vgear.scorllbot();
+        /*消息框在最底部*/
+        vgear.fortime();
+        /*每隔3分钟打开一次定时器*/
+
+        /*建立websocket通讯*/
+        var websocket = null;
+        if ('WebSocket' in window) {
+            websocket = new WebSocket('ws://218.242.26.118:8089/chat/webSocket/' + "34");
+        } else {
+            alert('该浏览器不支持websocket');
+        }
+        websocket.onopen = function (event) {/*建立连接*/
+            console.log('websocket建立连接');
+        }
+        websocket.onclose = function (event) {/*关闭连接*/
+            console.log('websocket关闭连接');
+        }
+        websocket.onmessage = function (event) { /*收到消息后的操作*/
+            console.log('websocket收到消息' + event.data);
+            var arry = [];
+            var result = $.parseJSON(event.data);
+            arry.push(result);
+            vgear.getmsg(arry);
+        }
+        websocket.onerror = function (event) { /*通讯连接报错*/
+            console.log('websocket通信发生错误');
+        }
+        window.onbeforeunload = function (event) {/*加载之前关闭连接*/
+            websocket.close();
+        }
+        function sendmessage(message) {/*发送消息*/
+            websocket.send(message);
+        }
+    })
+</script>
+<script type="text/javascript">
+    //    轮播
+    var li = document.getElementById('grbanner').getElementsByTagName("li");
+    var num = 0;
+    var len = li.length;
+    setInterval(function () {
+        li[num].style.display = "none";
+        num = ++num == len ? 0 : num;
+        li[num].style.display = "inline-block";
+
+    }, 2000);
+</script>
+<script>
+
+</script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        autoplay:5000,
+        loop:true
+    });
+</script>
+</body>
+</html>
+
+
